@@ -6,7 +6,8 @@ import {
   signInWithRedirect, 
   signInWithPopup, 
   GoogleAuthProvider,
-  createUserWithEmailAndPassword
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword 
 } from 'firebase/auth';
 import{
   getFirestore,
@@ -76,10 +77,21 @@ const createUserDocumentFromAuth = async (userAuth, additionalInformation = {}) 
   }
   // userDocRef will contain the details/data of our user if created else it will contain null
   return userDocRef;
-}
+};
 
 // createUserWithEmailAndPassword() is from firebase to authemticate a user with only an email and password
 export const createAuthUserWithEmailAndPassword = async (email, password) => {
   if(!email || !password) return;
   return await createUserWithEmailAndPassword(auth, email, password);
 };
+
+signInWithEmailAndPassword(auth, email, password)
+.then((userCredential) => {
+  // Signed in 
+  const user = userCredential.user;
+  // ...
+})
+.catch((error) => {
+  const errorCode = error.code;
+  const errorMessage = error.message;
+});

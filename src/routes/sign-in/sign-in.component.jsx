@@ -1,9 +1,13 @@
 import { 
   signInWithGooglePopup, 
   createUserDocumentFromAuth,
+  signInWithGoogleRedirect,
+  signInWithEmailAndPassword
 } from '../../utils/firebase/firebase.utils'
 
 import SignUpForm from '../../components/sign-up-form/sign-up-form.component';
+import FormInput from '../../components/form-input/form-input.component';
+import Button from '../../components/button/button.component';
 
 const SignIn = () => {
 
@@ -14,12 +18,25 @@ const SignIn = () => {
     const userDocRef = await createUserDocumentFromAuth(user);
   };
 
+  const logUser = async () => {
+    const {user} = await signInWithGoogleRedirect();
+    const {email, password} = user;
+    const userDocRef = await signInWithEmailAndPassword(email,password);
+  };
+
   return (
     <div>
+      <form>
+        <FormInput label="Email" type="email" name="email"  required />
+        <FormInput label="Password" type="password" name="password"  required />
+        <Button onClick={logUser}>
+          Sign in
+        </Button>
+        <Button buttonType="google" onClick={logGoogleUser}>
+          Sign in with Google
+        </Button>
+      </form>
       <h1>sign In Page</h1>
-      <button onClick={logGoogleUser}>
-        Sign in with Google
-      </button>
       <SignUpForm />
     </div>
   );
