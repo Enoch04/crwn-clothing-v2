@@ -1,3 +1,8 @@
+<<<<<<< HEAD
+=======
+import { Outlet } from 'react-router-dom';
+
+>>>>>>> origin/lesson-6
 import Directory from '../../components/directory/directory.component';
 
 const Home = () => {
@@ -29,7 +34,19 @@ const Home = () => {
     },
   ];
 
+<<<<<<< HEAD
   return <Directory categories={categories} />;
 };
 
 export default Home;
+=======
+  return (
+    <div>
+      <Directory categories={categories} />
+      <Outlet />
+    </div>
+  );
+};
+
+export default Home;
+>>>>>>> origin/lesson-6
