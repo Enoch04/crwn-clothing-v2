@@ -40,13 +40,14 @@ googleProvider.setCustomParameters({
 export const auth = getAuth();
 // ThesignInWithGooglePopup function creates a pop up screen to let the user sign in with the google services
 export const signInWithGooglePopup = () => signInWithPopup(auth,googleProvider);
+export const signInWithGoogleRedirect = () => signInWithRedirect(auth, googleProvider);
 
 // The getFirestore() gets the database used in the project from our firebase
 export const db= getFirestore();
 
 // createUserDocumentFromAuth is a custom function created to authenticate the user with the information given when they sing up thru the variable userAuth
 // the object additionalInfomation will contain the displayName in the case we dont use google as our provider and authenticate with email and password 
-const createUserDocumentFromAuth = async (userAuth, additionalInfomation = {}) => {
+const createUserDocumentFromAuth = async (userAuth, additionalInformation = {}) => {
   // it checks if there is information in userAuth if not returns and does not run the function else
   if(!userAuth) return;
   // we obtain the collection from our firebase database 
@@ -67,13 +68,12 @@ const createUserDocumentFromAuth = async (userAuth, additionalInfomation = {}) =
         displayName,
         email,
         createdAt,
-        ...additionalInfomation
+        ...additionalInformation
       });
     }
   } catch (error){
     console.log('error creating user', error.message)
   }
-
   // userDocRef will contain the details/data of our user if created else it will contain null
   return userDocRef;
 }
