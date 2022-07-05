@@ -1,11 +1,3 @@
-<<<<<<< HEAD
-import Home from './routes/home/home.component';
-
-const App = () => {
-    return (
-      <Home />
-    )
-=======
 import { Routes, Route } from 'react-router-dom';
 
 import Home from './routes/home/home.component';
@@ -26,7 +18,7 @@ const App = () => {
       </Route>
     </Routes>
   );
->>>>>>> origin/lesson-6
+
 };
   
 export default App;
