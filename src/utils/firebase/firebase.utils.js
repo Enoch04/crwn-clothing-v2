@@ -1,5 +1,4 @@
 import { initializeApp } from "firebase/app";
-<<<<<<< HEAD
 import { getAnalytics } from "firebase/analytics";
 
 import { 
@@ -11,23 +10,10 @@ import {
   signInWithEmailAndPassword 
 } from 'firebase/auth';
 import { getFirestore, doc, getDoc, setDoc } from 'firebase/firestore';
-=======
-import {
-  getAuth,
-  signInWithRedirect,
-  signInWithPopup,
-  GoogleAuthProvider,
-  createUserWithEmailAndPassword,
-  signInWithEmailAndPassword,
-  signOut,
-} from "firebase/auth";
-import { getFirestore, doc, getDoc, setDoc } from "firebase/firestore";
->>>>>>> origin/lesson-10
 
 
 // firebaseConfig is the configuration key values used by firebase to locate/identified your project 
 const firebaseConfig = {
-<<<<<<< HEAD
   apiKey: "AIzaSyBLVVvlBRkhGQXvVRm-jZ0SsXesxfqsQUA",
   authDomain: "crwn-clothing-41649.firebaseapp.com",
   projectId: "crwn-clothing-41649",
@@ -35,14 +21,7 @@ const firebaseConfig = {
   messagingSenderId: "944069216150",
   appId: "1:944069216150:web:feec99df2ce72f2d91ffb7",
   measurementId: "G-0W2J53E49F"
-=======
-  apiKey: "AIzaSyDDU4V-_QV3M8GyhC9SVieRTDM4dbiT0Yk",
-  authDomain: "crwn-clothing-db-98d4d.firebaseapp.com",
-  projectId: "crwn-clothing-db-98d4d",
-  storageBucket: "crwn-clothing-db-98d4d.appspot.com",
-  messagingSenderId: "626766232035",
-  appId: "1:626766232035:web:506621582dab103a4d08d6",
->>>>>>> origin/lesson-10
+
 };
 
 // Initialize Firebase
@@ -86,13 +65,8 @@ export const createUserDocumentFromAuth = async (
 
         ...additionalInformation
       });
-<<<<<<< HEAD
     } catch (error){
     console.log('error creating user', error.message)
-=======
-    } catch (error) {
-      console.log("error creating the user", error.message);
->>>>>>> origin/lesson-10
     }
   }
   // userDocRef will contain the details/data of our user if created else it will contain null
@@ -111,8 +85,3 @@ export const signInAuthUserWithEmailAndPassword = async (email, password) => {
 
   return await signInWithEmailAndPassword(auth, email, password);
 };
-<<<<<<< HEAD
-=======
-
-export const signOutUser = async () => await signOut(auth);
->>>>>>> origin/lesson-10

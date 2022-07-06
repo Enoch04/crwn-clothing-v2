@@ -26,11 +26,6 @@ const Navigation = () => {
           <Link className='nav-link' to='/shop'>
             SHOP
           </Link>
-<<<<<<< HEAD
-          <Link className='nav-link' to='/auth'>
-            SIGN IN
-          </Link>
-=======
 
           {currentUser ? (
             <span className='nav-link' onClick={signOutHandler}>
@@ -42,7 +37,6 @@ const Navigation = () => {
               SIGN IN
             </Link>
           )}
->>>>>>> origin/lesson-10
         </div>
       </div>
       <Outlet />
