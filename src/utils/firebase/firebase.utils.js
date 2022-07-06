@@ -87,5 +87,8 @@ export const signInAuthUserWithEmailAndPassword = async (email, password) => {
 };
 
 export const signOutUser = async () => await signOut(auth); 
-
+// This is an event listener that gets triggered when the auth changes
+// when a user signs in and when a user signs out this listener gets triggered 
+// with the callback past down in user.context.jsx it subscribes when the component mounts
+// and stays listening until useEffect() unmounts it.
 export const onAuthStateChangedListener = (callback) => onAuthStateChanged(auth, callback);
