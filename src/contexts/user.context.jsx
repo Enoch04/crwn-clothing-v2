@@ -11,8 +11,6 @@ export const UserProvider = ({ children }) => {
   const [currentUser,setCurrentUser] = useState(null);
   const value ={ currentUser, setCurrentUser }; //Value is use to allow the children to change the state
   
- 
-
   useEffect(() =>{
     const unsubscribe = onAuthStateChangedListener(()=> {});
     if(user){
